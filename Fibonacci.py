@@ -13,11 +13,11 @@ def fibonacciIterative(n):
 
 	fibNums = []
 	for i in range(0, n):
-		if i <= 2:
-			fibNums.append(i)
+		if i < 2:
+			fibNums.append(1)
 		else:
 			fibNums.append(fibNums[i-1] + fibNums[i-2])
-
+	print(fibNums)
 	return fibNums[n-1]
 
 
@@ -31,7 +31,7 @@ def fibonacciDynamic(n, memo):
 		f = fibonacciDynamic(n-1, memo) + fibonacciDynamic(n-2, memo)
 		# print('hi')
 	memo[n] = f
-	print(memo)
+	# print(memo)
 
 	return f
 
@@ -39,10 +39,10 @@ def fibonacciDynamic(n, memo):
 def main():
 
 	n = 10
-	# f1 = fibonacciRecursive(n)
-	# print(f1)
-	# f2 = fibonacciIterative(n)
-	# print(f2)
+	f1 = fibonacciRecursive(n)
+	print(f1)
+	f2 = fibonacciIterative(n)
+	print(f2)
 	memo = {}
 	f3 = fibonacciDynamic(n, memo)
 	print(f3)
